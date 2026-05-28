@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterLink, Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -16,8 +17,17 @@ export class Login {
 
   mensajeError = '';
   mensajeExito = '';
+  mostrarPassword = false;
 
-  constructor(private router: Router) {}
+  credencialesDemo = [
+    { correo: 'admin@mtecgy.com', password: 'Admin123', nombre: 'Administrador' },
+    { correo: 'user@mtecgy.com', password: 'User1234', nombre: 'Usuario Demo' }
+  ];
+
+  constructor(
+    private router: Router,
+    private authService: AuthService
+  ) {}
 
   validarEmail(correo: string): boolean {
     const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -29,7 +39,7 @@ export class Login {
     return regexPassword.test(password);
   }
 
-  iniciarSesion() {
+  iniciarSesion(): void {
     this.mensajeError = '';
     this.mensajeExito = '';
 
@@ -50,15 +60,25 @@ export class Login {
       return;
     }
 
-    if (correoLimpio === 'admin@mtecgy.com' && this.password === 'Admin123') {
-      this.mensajeExito = 'Inicio de sesión exitoso. Redirigiendo al inicio...';
+    // Usar AuthService para iniciar sesión
+    if (this.authService.iniciarSesion(correoLimpio, this.password)) {
+      this.mensajeExito = 'Inicio de sesión exitoso. Redirigiendo...';
 
       setTimeout(() => {
-        this.router.navigate(['/']);
+        this.router.navigate(['/dashboard']);
       }, 1000);
 
     } else {
       this.mensajeError = 'Correo o contraseña incorrectos.';
     }
+  }
+
+  togglePassword(): void {
+    this.mostrarPassword = !this.mostrarPassword;
+  }
+
+  autoCompletarCredenciales(credencial: any): void {
+    this.correo = credencial.correo;
+    this.password = credencial.password;
   }
 }

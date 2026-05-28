@@ -1,12 +1,165 @@
-<section class="hero">
-  <h1>Cursos online para impulsar tu futuro profesional</h1>
-
-  <p>
-    Aprende programación, tecnología, diseño web y negocios
-    con cursos prácticos desde cero.
-  </p>
-
-  <button routerLink="/cursos">
-    Ver cursos disponibles
-  </button>
+<!-- Hero Section -->
+<section class="hero py-5 text-white text-center">
+  <div class="container">
+    <h1 class="display-4 fw-bold mb-4">
+      <i class="fas fa-shopping-bag"></i>
+      Bienvenido a MTecGY Academy Shop
+    </h1>
+    <p class="lead mb-4">
+      Descubre los mejores productos de tecnología y accesorios para potenciar tu productividad
+    </p>
+    <div class="d-flex gap-3 justify-content-center flex-wrap">
+      <a routerLink="/productos" class="btn btn-light btn-lg fw-bold">
+        <i class="fas fa-shopping-cart"></i> Ver Productos
+      </a>
+      <a routerLink="/ofertas" class="btn btn-outline-light btn-lg fw-bold">
+        <i class="fas fa-tag"></i> Ver Ofertas
+      </a>
+    </div>
+  </div>
 </section>
+
+<!-- Características -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-5 fw-bold text-dark">
+      <i class="fas fa-star"></i> ¿Por qué elegirnos?
+    </h2>
+    <div class="row g-4">
+      <div *ngFor="let feat of caracteristicas" class="col-md-6 col-lg-3">
+        <div class="card h-100 text-center shadow-sm border-0">
+          <div class="card-body">
+            <i [class]="feat.icono + ' fa-3x text-primary mb-3'"></i>
+            <h5 class="card-title">{{ feat.titulo }}</h5>
+            <p class="card-text text-muted">{{ feat.descripcion }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Productos Destacados -->
+<section class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-5 fw-bold text-dark">
+      <i class="fas fa-fire text i-spark"></i> Productos Destacados
+    </h2>
+    <div class="row g-4">
+      <div *ngFor="let producto of productosDestacados" class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm hover-card">
+          <img
+            [src]="producto.imagen"
+            class="card-img-top"
+            [alt]="producto.nombre"
+            style="height: 200px; object-fit: cover;"
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{ producto.nombre | uppercase }}</h5>
+            <p class="card-text text-muted small">{{ producto.categoria }}</p>
+            <p class="h6 text-primary fw-bold">
+              {{ producto.precio | currency:'USD':'symbol':'1.2-2' }}
+            </p>
+            <small *ngIf="producto.stock > 0; else outOfStock" class="text-success">
+              ✓ {{ producto.stock }} disponibles
+            </small>
+            <ng-template #outOfStock>
+              <small class="text-danger">✗ Sin stock</small>
+            </ng-template>
+          </div>
+          <div class="card-footer bg-white border-top-0">
+            <button class="btn btn-primary w-100 btn-sm" [disabled]="producto.stock === 0">
+              Agregar al Carrito
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Estadísticas (Data Binding) -->
+<section class="py-5 bg-primary text-white">
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-md-6 mb-4 mb-md-0">
+        <h3 class="display-5 fw-bold">{{ contadorVisitas | number }}</h3>
+        <p class="lead">Visitantes este mes</p>
+        <button class="btn btn-light" (click)="incrementarVisitas()">
+          Incrementar contador
+        </button>
+      </div>
+      <div class="col-md-6">
+        <h3 class="display-5 fw-bold">{{ productosDestacados.length }}</h3>
+        <p class="lead">Productos disponibles</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card border-0 shadow-lg">
+          <div class="card-body p-5">
+            <h3 class="mb-3 text-center fw-bold">
+              <i class="fas fa-envelope"></i> Suscríbete a nuestro Newsletter
+            </h3>
+            <p class="text-center text-muted mb-4">
+              Recibe noticias de ofertas y nuevos productos directamente en tu correo
+            </p>
+            
+            <!-- Two-Way Data Binding con ngModel -->
+            <div class="mb-3">
+              <label class="form-label fw-bold">Nombre Completo</label>
+              <input
+                type="text"
+                class="form-control form-control-lg"
+                placeholder="Tu nombre"
+                [(ngModel)]="nombreUsuario"
+              />
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label fw-bold">Correo Electrónico</label>
+              <input
+                type="email"
+                class="form-control form-control-lg"
+                placeholder="tu@correo.com"
+                [(ngModel)]="email"
+              />
+            </div>
+
+            <!-- Conditional rendering con *ngIf -->
+            <div *ngIf="nombreUsuario && email" class="alert alert-info mb-3">
+              <small>Datos completados: <strong>{{ nombreUsuario | uppercase }}</strong> - {{ email | lowercase }}</small>
+            </div>
+
+            <button
+              class="btn btn-primary btn-lg w-100"
+              [disabled]="!nombreUsuario || !email"
+              (click)="suscribirse()"
+              [ngClass]="{'opacity-50': !nombreUsuario || !email}"
+            >
+              <i class="fas fa-paper-plane"></i> Suscribirse
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Final -->
+<section class="py-5 bg-dark text-white text-center">
+  <div class="container">
+    <h2 class="mb-4 fw-bold">¿Listo para comenzar?</h2>
+    <p class="lead mb-4">Explora nuestro catálogo completo y encuentra lo que necesitas</p>
+    <a routerLink="/tienda" class="btn btn-warning btn-lg fw-bold">
+      <i class="fas fa-store"></i> Ir a la Tienda
+    </a>
+  </div>
+</section>
+

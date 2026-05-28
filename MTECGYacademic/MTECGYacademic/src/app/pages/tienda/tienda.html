@@ -1,0 +1,75 @@
+<div class="tienda-container">
+  <div class="container py-5">
+    <h1 class="mb-4">Tienda Online</h1>
+
+    <!-- Tabla de productos -->
+    <div class="table-responsive mb-4">
+      <table class="table table-hover">
+        <thead class="table-dark">
+          <tr>
+            <th>Imagen</th>
+            <th>Nombre</th>
+            <th>Categoría</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Acción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let producto of productosPaginados">
+            <td>
+              <img
+                [src]="producto.imagen"
+                [alt]="producto.nombre"
+                style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px;"
+              />
+            </td>
+            <td>{{ producto.nombre | uppercase }}</td>
+            <td>
+              <span class="badge bg-info">{{ producto.categoria }}</span>
+            </td>
+            <td>
+              <strong class="text-primary">
+                {{ producto.precio | currency:'USD':'symbol':'1.2-2' }}
+              </strong>
+            </td>
+            <td>
+              <span [ngClass]="{'badge bg-success': producto.stock > 0, 'badge bg-danger': producto.stock === 0}">
+                {{ producto.stock > 0 ? producto.stock + ' disponibles' : 'Sin Stock' }}
+              </span>
+            </td>
+            <td>
+              <button
+                class="btn btn-sm btn-primary"
+                [disabled]="producto.stock === 0"
+                (click)="agregarAlCarrito(producto)"
+              >
+                Agregar
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Paginación -->
+    <nav aria-label="Paginación">
+      <ul class="pagination justify-content-center">
+        <li class="page-item" [class.disabled]="paginaActual === 1">
+          <button class="page-link" (click)="irAPagina(paginaActual - 1)">Anterior</button>
+        </li>
+        <li *ngFor="let pagina of paginas" class="page-item" [class.active]="pagina === paginaActual">
+          <button class="page-link" (click)="irAPagina(pagina)">{{ pagina }}</button>
+        </li>
+        <li class="page-item" [class.disabled]="paginaActual === totalPaginas">
+          <button class="page-link" (click)="irAPagina(paginaActual + 1)">Siguiente</button>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Info de paginación -->
+    <p class="text-center text-muted">
+      Mostrando {{ (paginaActual - 1) * productosPorPagina + 1 }} - {{ Math.min(paginaActual * productosPorPagina, totalProductos) }} de {{ totalProductos }} productos
+    </p>
+  </div>
+</div>

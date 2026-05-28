@@ -1,52 +1,215 @@
-# MTECGYacademic
+# MTECGYacademic - Tienda en Línea con Angular
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.5.
+Proyecto de tienda en línea desarrollado con Angular 20, que incluye autenticación simulada, gestión de productos, y panel administrativo.
 
-## Development server
+## 🚀 Características
 
-To start a local development server, run:
+- ✅ 9 páginas funcionales (Home, Productos, Ofertas, Tienda, Contacto, Mi Cuenta, Login, Dashboard, 404)
+- ✅ Autenticación con LocalStorage
+- ✅ Protección de rutas con AuthGuard
+- ✅ Consumo de API REST con JSON Server
+- ✅ Bootstrap 5 responsive
+- ✅ Todas las features de Angular: Data Binding, Directivas, Pipes
+- ✅ Sistema de paginación
+- ✅ Búsqueda y filtros de productos
 
+## 📋 Prerequisitos
+
+- Node.js 18+
+- Angular CLI 20.3.5
+- npm o yarn
+
+## 🔧 Instalación
+
+1. **Instalar dependencias:**
+   ```bash
+   npm install
+   ```
+
+2. **Instalar JSON Server (si no lo tienes):**
+   ```bash
+   npm install -g json-server
+   ```
+
+## 🏃 Ejecución
+
+### Opción 1: Desarrollo completo (recomendado)
+
+Terminal 1 - Iniciar JSON Server:
+```bash
+json-server --watch db.json --port 3000
+```
+
+Terminal 2 - Iniciar Angular:
+```bash
+ng serve
+# o
+npm start
+```
+
+Luego acceder a: `http://localhost:4200/`
+
+### Opción 2: Solo Angular (sin API)
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## 🔐 Credenciales de Prueba
 
-## Code scaffolding
+| Rol | Email | Contraseña |
+|-----|-------|-----------|
+| Admin | admin@mtecgy.com | Admin123 |
+| Usuario | user@mtecgy.com | User1234 |
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 📁 Estructura del Proyecto
 
-```bash
-ng generate component component-name
+```
+src/
+├── app/
+│   ├── components/
+│   │   ├── navbar/
+│   │   ├── footer/
+│   │   └── not-found/
+│   ├── pages/
+│   │   ├── home/
+│   │   ├── productos/
+│   │   ├── ofertas/
+│   │   ├── tienda/
+│   │   ├── login/
+│   │   ├── dashboard/
+│   │   ├── mi-cuenta/
+│   │   └── contacto/
+│   ├── services/
+│   │   ├── auth.service.ts
+│   │   ├── auth.guard.ts
+│   │   └── product.ts
+│   ├── app.routes.ts
+│   └── app.ts
+├── index.html
+├── main.ts
+└── styles.css
+
+db.json (Base de datos simulada)
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## 🛠️ Desarrollo
 
+### Generar componente
 ```bash
-ng generate --help
+ng generate component components/nombre-componente
 ```
 
-## Building
-
-To build the project run:
-
+### Generar servicio
 ```bash
-ng build
+ng generate service services/nombre-servicio
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
+### Build para producción
 ```bash
-ng test
+ng build --prod
 ```
 
-## Running end-to-end tests
+## 🎨 Características Angular Implementadas
 
-For end-to-end (e2e) testing, run:
+### Data Binding
+- Interpolación `{{ }}`
+- Property Binding `[propiedad]`
+- Event Binding `(evento)`
+- Two-Way Data Binding `[(ngModel)]`
+
+### Directivas
+- `*ngFor` - Iteración de listas
+- `*ngIf` - Condicionales
+- `[ngClass]` - Clases dinámicas
+- `[ngStyle]` - Estilos dinámicos
+
+### Pipes
+- `currency` - Formatos monetarios
+- `date` - Formato de fechas
+- `uppercase` / `lowercase` - Transformación de texto
+- `number` - Formato numérico
+
+### Servicios
+- AuthService - Autenticación y sesión
+- ProductService - Gestión de productos
+- AuthGuard - Protección de rutas
+
+## 📱 Responsividad
+
+El proyecto utiliza Bootstrap 5 para garantizar:
+- ✅ Diseño mobile-first
+- ✅ Grid responsive
+- ✅ Menú hamburguesa en móviles
+- ✅ Componentes adaptables
+
+## 🔄 Flujo de Autenticación
+
+1. Usuario accede a `/login`
+2. Ingresa credenciales y valida
+3. Datos se guardan en `LocalStorage`
+4. Redirección a `/dashboard`
+5. Al cerrar sesión, se limpia `LocalStorage`
+
+## 🗄️ Base de Datos
+
+El archivo `db.json` contiene:
+- **productos**: 10 productos de tecnología
+- **cursos**: 8 cursos (compatible)
+
+Estructura de producto:
+```json
+{
+  "id": 1,
+  "nombre": "Laptop Gamer Pro",
+  "imagen": "https://...",
+  "categoria": "Tecnología",
+  "precio": 4500,
+  "stock": 12
+}
+```
+
+## 📚 Rutas Disponibles
+
+| Ruta | Componente | Protegida | Descripción |
+|------|-----------|-----------|------------|
+| / | Home | No | Página de inicio |
+| /productos | Productos | No | Grid de productos |
+| /ofertas | Ofertas | No | Productos con descuento |
+| /tienda | Tienda | No | Tabla con paginación |
+| /contacto | Contacto | No | Contacto |
+| /cursos | Cursos | No | Cursos |
+| /login | Login | No | Autenticación |
+| /registro | Registro | No | Registro |
+| /mi-cuenta | MiCuenta | Sí | Perfil de usuario |
+| /dashboard | Dashboard | Sí | Panel administrativo |
+| ** | NotFound | No | Página 404 |
+
+## 🐛 Troubleshooting
+
+### Error: Cannot find module '@angular/common/http'
+```bash
+npm install @angular/common --save
+```
+
+### JSON Server no responde
+- Verificar que esté corriendo en puerto 3000
+- Revisar que db.json exista en la raíz
+
+### LocalStorage no funciona
+- Verificar que el navegador tenga cookies habilitadas
+- Limpiar caché del navegador
+
+## 📄 Licencia
+
+Proyecto educativo para el curso de JavaScript Avanzado - UTP
+
+## 👨‍💻 Autor
+
+Desarrollado como proyecto del curso JavaScript Avanzado - Ciclo 6 2026-I
+
+---
+
+Para más información ver: `PROYECTO_COMPLETADO.md`
 
 ```bash
 ng e2e
