@@ -1,0 +1,62 @@
+<main class="contenedor login-container">
+
+  <div class="card login-card">
+
+    <h2>Iniciar sesión</h2>
+
+    <p class="texto-login">
+      Accede a tu cuenta de MTecGY Academy
+    </p>
+
+    <div class="alert alert-danger" *ngIf="mensajeError">
+      {{ mensajeError }}
+    </div>
+
+    <div class="alert alert-success" *ngIf="mensajeExito">
+      {{ mensajeExito }}
+    </div>
+
+    <form>
+
+      <div class="mb-3">
+        <label class="form-label">Correo electrónico</label>
+
+        <input
+          type="email"
+          class="form-control"
+          placeholder="correo@ejemplo.com"
+          [(ngModel)]="correo"
+          name="correo"
+        >
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Contraseña</label>
+
+        <input
+          type="password"
+          class="form-control"
+          placeholder="Ingrese su contraseña"
+          [(ngModel)]="password"
+          name="password"
+        >
+      </div>
+
+      <button
+        type="button"
+        class="btn-registro w-100"
+        (click)="iniciarSesion()"
+      >
+        Iniciar sesión
+      </button>
+
+    </form>
+
+    <p class="texto-login mt-3">
+      ¿No tienes una cuenta?
+      <a routerLink="/registro">Regístrate aquí</a>
+    </p>
+
+  </div>
+
+</main>
