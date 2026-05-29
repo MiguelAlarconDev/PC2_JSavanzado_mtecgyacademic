@@ -3,7 +3,7 @@
     {
       "id": 1,
       "nombre": "Laptop Gamer Pro",
-      "imagen": "https://images.unsplash.com/photo-1591642068240-b91b8fbb9b6d",
+      "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfAQFM8tK2txBKnw3Dp9sE9bIQGY8qSQs2-A&s",
       "categoria": "Tecnología",
       "precio": 4500,
       "stock": 12
@@ -19,7 +19,7 @@
     {
       "id": 3,
       "nombre": "Teclado Mecánico RGB",
-      "imagen": "https://images.unsplash.com/photo-1587829191301-4f34603b614b",
+      "imagen": "https://cdn.memorykings.pe/files/2025/12/03/354656-MK041046A.jpg",
       "categoria": "Accesorios",
       "precio": 299.90,
       "stock": 25
@@ -27,7 +27,7 @@
     {
       "id": 4,
       "nombre": "Monitor 4K 32 pulgadas",
-      "imagen": "https://images.unsplash.com/photo-1527760050942-de0db5cb10aa",
+      "imagen": "https://tse4.mm.bing.net/th/id/OIP._KoY-6iFqvnF14h6cJocNQHaF6?cb=thfc1falcon&rs=1&pid=ImgDetMain&o=7&rm=3",
       "categoria": "Tecnología",
       "precio": 1299.90,
       "stock": 8
@@ -43,7 +43,7 @@
     {
       "id": 6,
       "nombre": "Webcam Full HD",
-      "imagen": "https://images.unsplash.com/photo-1598153419211-1f846db4c67f",
+      "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv12jq7ydQ8B3wQjt8h-_I6WFWk1b2Rb6D7g&s",
       "categoria": "Accesorios",
       "precio": 149.90,
       "stock": 20
@@ -51,7 +51,7 @@
     {
       "id": 7,
       "nombre": "Tablet Samsung 10 pulgadas",
-      "imagen": "https://images.unsplash.com/photo-1518611505868-48510c2e2b3d",
+      "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUKRNdSiq48TxNDbhu3k6lYQ9F88LTvqxXcw&s",
       "categoria": "Tecnología",
       "precio": 599.90,
       "stock": 15
@@ -59,7 +59,7 @@
     {
       "id": 8,
       "nombre": "Power Bank 20000mAh",
-      "imagen": "https://images.unsplash.com/photo-1609042239576-2ab0d449d1f4",
+      "imagen": "https://zyrontech.com.au/cdn/shop/files/powaflex-20000mah-power-bank-941913.jpg?v=1726767719",
       "categoria": "Accesorios",
       "precio": 89.90,
       "stock": 60
@@ -67,7 +67,7 @@
     {
       "id": 9,
       "nombre": "Cable HDMI 2.1",
-      "imagen": "https://images.unsplash.com/photo-1621533032142-6cc1cdca37fd",
+      "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRriSgpgh36eNzwCLenMNHeKdcblps1PR-kng&s",
       "categoria": "Accesorios",
       "precio": 29.90,
       "stock": 100
@@ -75,7 +75,7 @@
     {
       "id": 10,
       "nombre": "Funda Laptop de Neopreno",
-      "imagen": "https://images.unsplash.com/photo-1586225313549-a6c7b13d57a0",
+      "imagen": "https://empatiasac.com/img/productos/000004/_funda-de-laptop-1664893263.jpeg",
       "categoria": "Accesorios",
       "precio": 59.90,
       "stock": 40
