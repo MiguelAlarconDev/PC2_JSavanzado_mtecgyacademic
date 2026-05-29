@@ -26,8 +26,8 @@ export interface Curso {
   providedIn: 'root'
 })
 export class ProductService {
-  private productosUrl = 'http://localhost:3000/productos';
-  private cursosUrl = 'http://localhost:3000/cursos';
+  private productosUrl = 'https://pc2-jsavanzado-mtecgyacademic.onrender.com/productos';
+  private cursosUrl = 'https://pc2-jsavanzado-mtecgyacademic.onrender.com/cursos';
 
   constructor(private http: HttpClient) {}
 
