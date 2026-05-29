@@ -13,10 +13,10 @@
             <p class="text-muted small">Rol: {{ usuario?.role | uppercase }}</p>
             <hr />
             <button class="btn btn-primary w-100 mb-2" (click)="editarPerfil()">
-              Editar Perfil
+              Editar perfil
             </button>
             <button class="btn btn-outline-danger w-100" (click)="cerrarSesion()">
-              Cerrar Sesión
+              Cerrar sesión
             </button>
           </div>
         </div>
@@ -27,22 +27,22 @@
         <!-- Información de cuenta -->
         <div class="card mb-4 shadow-sm">
           <div class="card-header bg-primary text-white">
-            <h5 class="mb-0">Información de Cuenta</h5>
+            <h5 class="mb-0">Información de cuenta</h5>
           </div>
           <div class="card-body">
             <div class="row mb-3">
               <div class="col-md-6">
-                <label class="text-muted small">Nombre Completo</label>
+                <label class="text-muted small">Nombre completo</label>
                 <p class="fw-bold">{{ usuario?.nombre }}</p>
               </div>
               <div class="col-md-6">
-                <label class="text-muted small">Correo Electrónico</label>
+                <label class="text-muted small">Correo electrónico</label>
                 <p class="fw-bold">{{ usuario?.correo }}</p>
               </div>
             </div>
             <div class="row">
               <div class="col-md-6">
-                <label class="text-muted small">Miembro Desde</label>
+                <label class="text-muted small">Miembro desde</label>
                 <p class="fw-bold">{{ fechaRegistro | date:'dd/MM/yyyy' }}</p>
               </div>
               <div class="col-md-6">
@@ -56,7 +56,7 @@
         <!-- Compras recientes -->
         <div class="card shadow-sm">
           <div class="card-header bg-primary text-white">
-            <h5 class="mb-0">Compras Recientes</h5>
+            <h5 class="mb-0">Compras recientes</h5>
           </div>
           <div class="table-responsive">
             <table class="table mb-0">

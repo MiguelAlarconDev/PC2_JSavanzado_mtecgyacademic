@@ -4,18 +4,17 @@
     <div class="row mb-5">
       <div class="col-md-8">
         <h1 class="mb-2">
-          <i class="fas fa-chart-line"></i> Panel de Administración
+          <i class="fas fa-chart-line"></i> Panel de administración
         </h1>
         <p class="text-muted">Bienvenido, {{ usuario?.nombre }}</p>
       </div>
       <div class="col-md-4 text-end">
         <button class="btn btn-outline-danger" (click)="cerrarSesion()">
-          <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+          <i class="fas fa-sign-out-alt"></i> Cerrar sesión
         </button>
       </div>
     </div>
 
-    <!-- Tarjetas de estadísticas -->
     <div class="row g-4 mb-5">
       <div class="col-md-6 col-lg-3">
         <div class="stat-card">
@@ -23,7 +22,7 @@
             <i class="fas fa-dollar-sign"></i>
           </div>
           <div class="stat-content">
-            <p class="stat-label">Ventas Total</p>
+            <p class="stat-label">Ventas total</p>
             <h4 class="stat-value">{{ estadisticas.ventasTotal | currency:'USD':'symbol':'1.0-0' }}</h4>
           </div>
         </div>
@@ -35,7 +34,7 @@
             <i class="fas fa-box"></i>
           </div>
           <div class="stat-content">
-            <p class="stat-label">Productos Vendidos</p>
+            <p class="stat-label">Productos vendidos</p>
             <h4 class="stat-value">{{ estadisticas.productosVendidos }}</h4>
           </div>
         </div>
@@ -47,7 +46,7 @@
             <i class="fas fa-users"></i>
           </div>
           <div class="stat-content">
-            <p class="stat-label">Clientes Registrados</p>
+            <p class="stat-label">Clientes registrados</p>
             <h4 class="stat-value">{{ estadisticas.clientesRegistrados }}</h4>
           </div>
         </div>
@@ -59,7 +58,7 @@
             <i class="fas fa-chart-pie"></i>
           </div>
           <div class="stat-content">
-            <p class="stat-label">Ingreso Este Mes</p>
+            <p class="stat-label">Ingreso este mes</p>
             <h4 class="stat-value">{{ estadisticas.ingresoMensual | currency:'USD':'symbol':'1.0-0' }}</h4>
           </div>
         </div>
@@ -71,7 +70,7 @@
       <div class="col-md-8">
         <div class="card chart-card">
           <div class="card-header bg-primary text-white">
-            <h5 class="mb-0">Ingresos Mensuales</h5>
+            <h5 class="mb-0">Ingresos mensuales</h5>
           </div>
           <div class="card-body">
             <canvas id="chartLine" height="120"></canvas>
@@ -81,7 +80,7 @@
       <div class="col-md-4">
         <div class="card chart-card">
           <div class="card-header bg-primary text-white">
-            <h5 class="mb-0">Distribución de Ventas</h5>
+            <h5 class="mb-0">Distribución de ventas</h5>
           </div>
           <div class="card-body d-flex justify-content-center align-items-center">
             <canvas id="chartDonut" width="200" height="200"></canvas>
@@ -90,12 +89,11 @@
       </div>
     </div>
 
-    <!-- Actividad reciente -->
     <div class="row">
       <div class="col-md-8 mb-4">
         <div class="card shadow-sm">
           <div class="card-header bg-primary text-white">
-            <h5 class="mb-0">Actividad Reciente</h5>
+            <h5 class="mb-0">Actividad reciente</h5>
           </div>
           <div class="table-responsive">
             <table class="table mb-0">
@@ -122,7 +120,6 @@
         </div>
       </div>
 
-      <!-- Opciones administrativas -->
       <div class="col-md-4">
         <div class="card shadow-sm mb-3">
           <div class="card-header bg-primary text-white">
@@ -130,18 +127,17 @@
           </div>
           <div class="card-body">
             <button class="btn btn-primary w-100 mb-2" (click)="generarReporte()">
-              <i class="fas fa-file-export"></i> Generar Reporte
+              <i class="fas fa-file-export"></i> Generar reporte
             </button>
             <button class="btn btn-outline-primary w-100 mb-2">
               <i class="fas fa-cog"></i> Configuración
             </button>
             <button class="btn btn-outline-primary w-100">
-              <i class="fas fa-users"></i> Gestionar Usuarios
+              <i class="fas fa-users"></i> Gestionar usuarios
             </button>
           </div>
         </div>
 
-        <!-- Información del usuario -->
         <div class="card shadow-sm">
           <div class="card-header bg-primary text-white">
             <h5 class="mb-0">Perfil</h5>

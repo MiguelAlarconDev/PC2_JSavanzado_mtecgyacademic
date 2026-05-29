@@ -80,7 +80,7 @@
             <ul class="dropdown-menu dropdown-menu-end">
               <li>
                 <a class="dropdown-item" routerLink="/mi-cuenta">
-                  <i class="fas fa-user"></i> Mi Cuenta
+                  <i class="fas fa-user"></i> Mi cuenta
                 </a>
               </li>
               <li>
@@ -91,7 +91,7 @@
               <li><hr class="dropdown-divider" /></li>
               <li>
                 <a class="dropdown-item text-danger" (click)="cerrarSesion()">
-                  <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+                  <i class="fas fa-sign-out-alt"></i> Cerrar sesión
                 </a>
               </li>
             </ul>
@@ -100,14 +100,14 @@
 
         <ng-template #noLogueado>
           <a routerLink="/login" class="btn btn-sm btn-primary">
-            <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
+            <i class="fas fa-sign-in-alt"></i> Iniciar sesión
           </a>
           <a routerLink="/registro" class="btn btn-sm btn-outline-light">
             <i class="fas fa-user-plus"></i> Regístrate
           </a>
         </ng-template> 
         
-        <a routerLink="/carrito" class="btn btn-primary ms-2 btn-carrito">🛒 Carrito
+        <a routerLink="/carrito" class="btn btn-primary ms-2 btn-carrito"> Carrito
           <span class="badge bg-danger ms-1">{{ cantidadCarrito }}</span>
         </a>
       </div>

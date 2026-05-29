@@ -2,7 +2,7 @@
   <div class="container py-5">
     <div class="row mb-5 align-items-center">
       <div class="col-md-8">
-        <h1 class="mb-3">Ofertas Especiales</h1>
+        <h1 class="mb-3">Ofertas especiales</h1>
         <p class="lead text-muted">¡Descuentos increíbles en productos seleccionados!</p>
       </div>
       <div class="col-md-4 text-center">
@@ -38,8 +38,8 @@
             </div>
 
             <p class="card-text small">
-              <span *ngIf="producto.stock > 0" class="text-success">✓ En Stock</span>
-              <span *ngIf="producto.stock === 0" class="text-danger">Sin Stock</span>
+              <span *ngIf="producto.stock > 0" class="text-success"> En stock</span>
+              <span *ngIf="producto.stock === 0" class="text-danger">Sin stock</span>
             </p>
           </div>
           <div class="card-footer bg-white">
@@ -48,7 +48,7 @@
               [disabled]="producto.stock === 0"
               (click)="agregarAlCarrito(producto)"
             >
-              Comprar Ahora
+              Comprar ahora
             </button>
           </div>
         </div>
@@ -60,7 +60,7 @@
       <div class="col-12">
         <div class="alert alert-warning" role="alert">
           <h4 class="alert-heading">¡Aproveche estas ofertas!</h4>
-          <p>Estas ofertas especiales son por tiempo limitado. Haga clic en "Comprar Ahora" para agregar productos a su carrito.</p>
+          <p>Estas ofertas especiales son por tiempo limitado. Haga clic en "Comprar ahora" para agregar productos a su carrito.</p>
         </div>
       </div>
     </div>
