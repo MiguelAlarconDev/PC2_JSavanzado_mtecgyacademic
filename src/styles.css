@@ -1,403 +1,90 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
-
-body {
-  background: #f0f7ff;
-  color: #1a2a3a;
-}
-
-.header {
-  height: 85px;
-  background: white;
-  display: flex;
-  align-items: center;
-  gap: 25px;
-  padding: 0 45px;
-  border-bottom: 2px solid #d6eaff;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-.logo {
-  font-size: 28px;
-  font-weight: bold;
-  color: #0f1c2e;
-}
-
-.logo span {
-  color: #2196f3;
-}
-
-.nav a {
-  margin: 0 10px;
-  text-decoration: none;
-  color: #1a2a3a;
-  font-weight: 500;
-}
-
-.nav a:hover {
-  color: #2196f3;
-}
-
-.buscador {
-  flex: 1;
-  padding: 14px 20px;
-  border: 1px solid #b8d9f5;
-  border-radius: 30px;
-  font-size: 15px;
-}
-
-.acciones {
-  display: flex;
-  gap: 10px;
-}
-
-button {
-  cursor: pointer;
-  border: none;
-  border-radius: 8px;
-  padding: 12px 16px;
-  font-weight: bold;
-}
-
-.btn-login {
-  background: white;
-  border: 1px solid #2196f3;
-  color: #2196f3;
-}
-
-.btn-registro,
-.carrito,
-.hero button,
-.card button,
-.btn-matricula {
-  background: #2196f3;
-  color: white;
-}
-
-.btn-registro:hover,
-.carrito:hover,
-.hero button:hover,
-.card button:hover,
-.btn-matricula:hover {
-  background: #0b7dda;
-}
-
-.hero {
-  background: linear-gradient(120deg, #2196f3, #00bcd4, #0f1c2e);
-  color: white;
-  padding: 70px 120px;
-}
-
-.hero h1 {
-  font-size: 42px;
-  margin-bottom: 15px;
-}
-
-.hero p {
-  font-size: 18px;
-  margin-bottom: 25px;
-}
-
-.contenedor {
-  padding: 45px 75px;
-}
-
-.contenedor h2 {
-  margin-bottom: 25px;
-  font-size: 28px;
-  color: #0f1c2e;
-}
-
-.titulo-seccion {
-  margin-top: 45px;
-}
-
-.cursos {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 25px;
-}
-
-.card {
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 3px 12px rgba(0,0,0,0.10);
-  padding-bottom: 18px;
-  transition: transform 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-6px);
-}
-
-.card img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-}
-
-.card h3,
-.card p,
-.card h4 {
-  padding: 0 15px;
-  margin-top: 10px;
-}
-
-.card h3 {
-  color: #0f1c2e;
-}
-
-.docente {
-  color: #555;
-  font-size: 14px;
-}
-
-.card h4 {
-  color: #0f1c2e;
-  font-size: 20px;
-}
-
-.card button {
-  margin: 15px;
-  width: calc(100% - 30px);
-}
-
-.panel-carrito {
-  position: fixed;
-  top: 95px;
-  right: 25px;
-  width: 340px;
-  background: white;
-  border-radius: 14px;
-  box-shadow: 0 5px 22px rgba(0,0,0,0.25);
-  padding: 18px;
-  z-index: 100;
-}
-
-.oculto {
-  display: none;
-}
-
-.carrito-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 16px;
-}
-
-.carrito-header h3 {
-  color: #0f1c2e;
-}
-
-.carrito-header span {
-  cursor: pointer;
-  font-size: 18px;
-  color: #2196f3;
-  font-weight: bold;
-}
-
-.panel-carrito ul {
-  max-height: 220px;
-  overflow-y: auto;
-  margin-bottom: 15px;
-  padding-left: 20px;
-}
-
-.panel-carrito li {
-  margin-bottom: 10px;
-}
-
-.btn-matricula {
-  width: 100%;
-}
-
-/* Estilos mejorados para el carrito */
-.carrito-total {
-  border-top: 1px solid #e6eef8;
-  padding-top: 15px;
-  margin-bottom: 15px;
-}
-
-.subtotal,
-.descuento,
-.total {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 8px;
-  color: #1a2a3a;
-}
-
-.descuento {
-  color: #27ae60;
-  font-weight: 500;
-}
-
-.total {
-  font-size: 18px;
-  font-weight: bold;
-  color: #0f1c2e;
-}
-
-.item-carrito {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.item-acciones {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.precio-item {
-  font-size: 13px;
-  color: #555;
-}
-
-.btn-eliminar {
-  background: #e74c3c;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  padding: 4px 8px;
-  font-size: 12px;
-  cursor: pointer;
-}
-
-.btn-eliminar:hover {
-  background: #c0392b;
-}
-
-.footer {
-  margin-top: 50px;
-  background: #0f1c2e;
-  color: white;
-}
-
-.footer-contenido {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  padding: 45px 60px;
-  gap: 30px;
-}
-
-.footer h3 {
-  margin-bottom: 18px;
-}
-
-.footer p {
-  margin-bottom: 12px;
-  color: #e6eef8;
-}
-
-.footer-final {
-  border-top: 1px solid #3d4a5c;
-  padding: 25px 60px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* Estilos para el formulario de registro */
-.registro-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 40px;
-}
-
-.registro-card {
-  max-width: 450px;
-  width: 100%;
-  padding: 35px;
-  text-align: center;
-}
-
-.registro-card h2 {
-  color: #0f1c2e;
-  margin-bottom: 8px;
-}
-
-.texto-registro {
-  color: #555;
-  margin-bottom: 25px;
-}
-
-.registro-card .form-label {
-  text-align: left;
-  display: block;
-  color: #1a2a3a;
-  font-weight: 500;
-  margin-bottom: 6px;
-}
-
-.registro-card .form-control {
-  border: 1px solid #b8d9f5;
-  padding: 12px 15px;
-}
-
-.registro-card .form-control:focus {
-  border-color: #2196f3;
-  box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.15);
-}
-
-.registro-card .w-100 {
-  width: 100%;
-  margin-top: 10px;
-}
-
-.texto-login {
-  margin-top: 20px;
-  color: #555;
-}
-
-.texto-login a {
-  color: #2196f3;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.texto-login a:hover {
-  text-decoration: underline;
-}
-
-.usuarios-registrados {
-  width: 100%;
-  max-width: 600px;
-  background: white;
-  border-radius: 12px;
-  padding: 25px;
-  box-shadow: 0 3px 12px rgba(0,0,0,0.10);
-}
-
-.usuarios-registrados h3 {
-  color: #0f1c2e;
-  margin-bottom: 15px;
-}
-
-.lista-usuarios {
-  list-style: none;
-  padding: 0;
-}
-
-.lista-usuarios li {
-  padding: 10px;
-  border-bottom: 1px solid #e6eef8;
-  color: #1a2a3a;
-}
-
-.lista-usuarios li:last-child {
-  border-bottom: none;
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+
+:root {
+  --bg: #f6fbff;
+  --card: #ffffff;
+  --muted: #55606a;
+  --text: #0f1c2e;
+  --primary: #2b8cff;
+  --primary-600: #1f6ed9;
+  --accent: #00c2b8;
+  --glass: rgba(255,255,255,0.6);
+  --radius: 12px;
+  --shadow-sm: 0 6px 18px rgba(16,24,40,0.06);
+  --shadow-md: 0 12px 30px rgba(16,24,40,0.08);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: linear-gradient(180deg,var(--bg),#eef7ff);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+}
+
+/* Layout helpers */
+.container, .contenedor{max-width:1200px;margin:0 auto;padding:32px}
+.contenedor{padding-top:40px;padding-bottom:40px}
+
+/* Header / Navbar fallback styling (keeps existing classes) */
+.header{background:var(--card);border-bottom:1px solid rgba(43,140,255,0.08);box-shadow:var(--shadow-sm);position:sticky;top:0;z-index:50}
+.logo{font-weight:700;color:var(--text);letter-spacing:0.2px}
+
+/* Buttons */
+button, .btn {
+  cursor:pointer;border-radius:10px;padding:10px 14px;font-weight:600;border:none;transition:all .18s ease;display:inline-block
+}
+.btn-primary, .btn-registro, .carrito, .btn-matricula{background:linear-gradient(135deg,var(--primary),var(--primary-600));color:#fff;box-shadow:0 8px 20px rgba(43,140,255,0.12)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
+.btn-outline-light{background:transparent;border:1px solid rgba(255,255,255,0.12);color:#fff}
+
+/* Hero */
+.hero{background:linear-gradient(135deg,var(--primary),#00bcd4);color:#fff;padding:64px 20px;border-radius:16px;margin:24px 0}
+.hero h1{font-size:2.4rem;margin-bottom:0.5rem}
+.hero p{font-size:1.05rem;opacity:0.95;max-width:820px;margin:0 auto}
+
+/* Cards */
+.card{background:var(--card);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .25s ease,box-shadow .25s ease}
+.card:hover{transform:translateY(-8px);box-shadow:var(--shadow-md)}
+.card img{width:100%;height:180px;object-fit:cover}
+.card h3,.card h4{padding:12px 16px;margin:0;color:var(--text)}
+.card p{padding:0 16px 12px;color:var(--muted)}
+
+/* Responsive grid for course/product lists */
+.cursos{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+@media (max-width:1100px){.cursos{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:820px){.cursos{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.cursos{grid-template-columns:1fr}}
+
+/* Panel carrito tweaks */
+.panel-carrito{width:320px;right:20px;top:90px;border-radius:14px}
+
+/* Footer */
+.footer{background:linear-gradient(180deg,#0f1c2e 0%,#162a40 100%);color:#e6f2ff;padding:48px 0;margin-top:40px}
+.footer a{color:var(--accent);text-decoration:none}
+
+/* Registro/Login form */
+.registro-card,.usuarios-registrados{background:linear-gradient(180deg,rgba(255,255,255,0.95),var(--card));padding:28px;border-radius:14px;box-shadow:var(--shadow-sm)}
+.registro-card .form-control{border:1px solid rgba(16,24,40,0.06);padding:12px;border-radius:8px}
+.registro-card .form-control:focus{outline:none;box-shadow:0 6px 18px rgba(43,140,255,0.08);border-color:var(--primary)}
+
+/* Utilities */
+.text-muted{color:var(--muted)}
+.text-center{text-align:center}
+.mb-3{margin-bottom:1rem}
+
+/* Small screens adjustments */
+@media (max-width:768px){
+  .container,.contenedor{padding:18px}
+  .hero{padding:36px 12px}
+}
+
+/* Preserve any existing helper classes */
+.oculto{display:none}
+.opacity-50{opacity:.5}
 
 .footer-final h2 {
   color: white;

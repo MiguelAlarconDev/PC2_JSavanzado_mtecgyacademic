@@ -58,11 +58,6 @@ export class Home implements OnInit {
       }
     });
   }
-
-  incrementarVisitas(): void {
-    this.contadorVisitas++;
-  }
-
   suscribirse(): void {
     if (this.email) {
       alert(`¡Gracias ${this.nombreUsuario}! Te has suscrito con ${this.email}`);

@@ -1,39 +1,8 @@
-.productos-container {
-  min-height: calc(100vh - 150px);
-  background-color: #f8f9fa;
-}
-
-.card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15) !important;
-}
-
-.card-img-top {
-  border-bottom: 1px solid #eee;
-}
-
-.btn-primary {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border: none;
-  transition: all 0.3s ease;
-}
-
-.btn-primary:hover:not(:disabled) {
-  transform: scale(1.02);
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
-}
-
-.btn-primary:disabled {
-  background: #ccc;
-  cursor: not-allowed;
-}
-
-h1 {
-  color: #2c3e50;
-  font-weight: 700;
-  margin-bottom: 30px;
-}
+.productos-container{min-height:calc(100vh - 150px);background:transparent;padding:20px}
+.card{transition:transform .25s ease,box-shadow .25s ease;border-radius:12px}
+.card:hover{transform:translateY(-8px);box-shadow:var(--shadow-md) !important}
+.card-img-top{border-bottom:1px solid rgba(0,0,0,0.04)}
+.btn-primary{background:linear-gradient(135deg,var(--primary),var(--primary-600));border:none}
+.btn-primary:hover:not(:disabled){transform:translateY(-3px);box-shadow:var(--shadow-md)}
+.btn-primary:disabled{background:#ddd;cursor:not-allowed}
+h1{color:var(--text);font-weight:800;margin-bottom:24px}
