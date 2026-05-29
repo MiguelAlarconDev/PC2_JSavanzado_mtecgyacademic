@@ -1,0 +1,39 @@
+<section class="contenedor">
+
+  <h2>Contacto</h2>
+
+  <div class="card p-4">
+
+    <label>Nombre completo:</label>
+
+    <input
+      type="text"
+      class="form-control mb-3"
+      [(ngModel)]="nombre"
+    >
+
+    <label>Correo electrónico:</label>
+
+    <input
+      type="email"
+      class="form-control mb-3"
+      [(ngModel)]="correo"
+    >
+
+    <label>Mensaje:</label>
+
+    <textarea
+      class="form-control mb-3"
+      [(ngModel)]="mensaje"
+    ></textarea>
+
+    <button
+      class="btn btn-primary"
+      (click)="enviarMensaje()"
+    >
+      Enviar mensaje
+    </button>
+
+  </div>
+
+</section>
