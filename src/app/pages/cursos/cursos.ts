@@ -57,11 +57,11 @@ export class Cursos implements OnInit {
       id: 'curso-' + curso.id,
       nombre: curso.nombre,
       categoria: curso.categoria,
-      precio: curso.precio
+      precio: curso.precio,
+      imagen: curso.imagen,
+      stock: 1
     };
-
     this.carritoService.agregarProducto(itemCarrito);
-
     alert(`${curso.nombre} agregado al carrito`);
   }
 }

@@ -8,3 +8,13 @@ h1{color:var(--text);font-weight:800;margin-bottom:20px}
 .page-link{color:var(--primary);border-color:var(--primary)}
 .page-link:hover{background:var(--primary);border-color:var(--primary);color:#fff}
 .page-item.active .page-link{background:var(--primary);border-color:var(--primary)}
+
+.precio-producto{
+  color:#000;
+  font-weight:700;
+}
+
+.categoria-texto{
+  color: #000000 !important;
+  font-weight: 600;
+}
