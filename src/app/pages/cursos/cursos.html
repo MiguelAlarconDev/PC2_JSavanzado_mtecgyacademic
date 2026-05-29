@@ -1,0 +1,103 @@
+<main class="contenedor">
+
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Cursos disponibles</h2>
+  </div>
+
+  <div class="mb-4">
+    <label class="form-label">
+      Filtrar por categoría
+    </label>
+
+    <select
+      class="form-select"
+      [(ngModel)]="categoriaSeleccionada"
+    >
+      <option value="Todos">Todos</option>
+      <option value="Programación">Programación</option>
+      <option value="Diseño Web">Diseño Web</option>
+      <option value="Base de Datos">Base de Datos</option>
+      <option value="Full Stack">Full Stack</option>
+      <option value="Gestión">Gestión</option>
+      <option value="Ciberseguridad">Ciberseguridad</option>
+      <option value="Scrum">Scrum</option>
+    </select>
+  </div>
+
+  <div class="mb-4">
+    <label class="form-label">
+      Buscar curso
+    </label>
+
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Buscar curso..."
+      [(ngModel)]="textoBusqueda"
+    >
+  </div>
+
+  <div class="cursos">
+
+    <div
+      class="card"
+      *ngFor="let curso of cursosFiltrados"
+      [ngClass]="{
+        'border border-success': curso.stock > 0,
+        'border border-danger': curso.stock === 0
+      }"
+    >
+
+      <img [src]="curso.imagen" [alt]="curso.nombre">
+
+      <h3>{{ curso.nombre | uppercase }}</h3>
+
+      <p class="docente">
+        Docente: {{ curso.docente }}
+      </p>
+
+      <p>{{ curso.descripcion }}</p>
+
+      <p>
+        Categoría:
+        <strong>{{ curso.categoria }}</strong>
+      </p>
+
+      <h4 *ngIf="curso.precio === 0; else precioCurso">
+        Gratis
+      </h4>
+
+      <ng-template #precioCurso>
+        <h4>
+          S/ {{ curso.precio | number:'1.2-2' }}
+        </h4>
+      </ng-template>
+
+      <p
+        [ngClass]="{
+          'text-success': curso.stock > 0,
+          'text-danger': curso.stock === 0
+        }"
+      >
+        Stock: {{ curso.stock }}
+      </p>
+
+      <button
+        class="btn btn-primary"
+        (click)="agregarCarrito(curso)"
+      >
+        Agregar al carrito
+      </button>
+
+    </div>
+
+  </div>
+
+  <p
+    class="text-center mt-4"
+    *ngIf="cursosFiltrados.length === 0"
+  >
+    No se encontraron cursos con ese criterio.
+  </p>
+
+</main>

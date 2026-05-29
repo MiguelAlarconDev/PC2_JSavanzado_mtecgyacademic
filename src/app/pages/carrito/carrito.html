@@ -1,0 +1,144 @@
+<div class="container my-5">
+
+  <h1 class="mb-4">🛒 Carrito de Compras</h1>
+
+  <div *ngIf="productos.length === 0" class="alert alert-info text-center">
+    Tu carrito está vacío.
+  </div>
+
+  <div *ngIf="productos.length > 0" class="card shadow">
+
+    <div class="card-header bg-dark text-white">
+      Productos agregados
+    </div>
+
+    <div class="table-responsive">
+
+      <table class="table table-striped align-middle mb-0">
+
+        <thead>
+          <tr>
+            <th>Imagen</th>
+            <th>Producto</th>
+            <th>Categoría</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Subtotal</th>
+            <th>Acción</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr *ngFor="let producto of productos">
+
+            <td>
+              <img
+                *ngIf="producto.imagen"
+                [src]="producto.imagen"
+                [alt]="producto.nombre"
+                style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;"
+              />
+
+              <span *ngIf="!producto.imagen" class="text-muted">
+                Sin imagen
+              </span>
+            </td>
+
+            <td>{{ producto.nombre }}</td>
+
+            <td>
+              <span class="badge bg-info">
+                {{ producto.categoria }}
+              </span>
+            </td>
+
+            <td>
+              {{ producto.precio | currency:'S/ ' }}
+            </td>
+
+            <td>
+
+              <div class="d-flex align-items-center gap-2">
+
+                <button
+                  class="btn btn-sm btn-outline-secondary"
+                  (click)="disminuirCantidad(producto.id)"
+                >
+                  -
+                </button>
+
+                <span>{{ producto.cantidad }}</span>
+
+                <button
+                  class="btn btn-sm btn-outline-secondary"
+                  (click)="aumentarCantidad(producto.id)"
+                >
+                  +
+                </button>
+
+              </div>
+
+            </td>
+
+            <td>
+              <strong>
+                {{ producto.precio * producto.cantidad | currency:'S/ ' }}
+              </strong>
+            </td>
+
+            <td>
+
+              <button
+                class="btn btn-danger btn-sm"
+                (click)="eliminarProducto(producto.id)"
+              >
+                Eliminar
+              </button>
+
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+    <div class="card-footer d-flex justify-content-between align-items-center flex-wrap gap-2">
+
+      <h4 class="mb-0">
+        Total: {{ calcularTotal() | currency:'S/ ' }}
+      </h4>
+
+      <div class="d-flex gap-2">
+
+        <button
+          class="btn btn-success"
+          (click)="finalizarCompra()"
+        >
+          Finalizar compra
+        </button>
+
+        <button
+          class="btn btn-outline-danger"
+          (click)="vaciarCarrito()"
+        >
+          Vaciar carrito
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div
+    *ngIf="mensajeCompra"
+    class="alert alert-success mt-3 text-center"
+  >
+    {{ mensajeCompra }}
+  </div>
+
+</div>

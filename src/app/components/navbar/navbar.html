@@ -1,0 +1,116 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm sticky-top">
+  <div class="container-fluid">
+    <!-- Logo -->
+    <a class="navbar-brand fw-bold" routerLink="/">
+      <i class="fas fa-graduation-cap"></i>
+      <span class="ms-2">MTecGY Academy</span>
+    </a>
+
+    <!-- Toggle button para mobile -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Menú -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+            <i class="fas fa-home"></i> Inicio
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/productos" routerLinkActive="active">
+            <i class="fas fa-box"></i> Productos
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/ofertas" routerLinkActive="active">
+            <i class="fas fa-tag"></i> Ofertas
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/tienda" routerLinkActive="active">
+            <i class="fas fa-store"></i> Tienda
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/cursos" routerLinkActive="active">
+            <i class="fas fa-book"></i> Cursos
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contacto" routerLinkActive="active">
+            <i class="fas fa-envelope"></i> Contacto
+          </a>
+        </li>
+      </ul>
+
+      <!-- Buscador -->
+      <div class="search-bar me-3">
+        <input
+          type="text"
+          class="form-control form-control-sm"
+          placeholder="Buscar..."
+          [(ngModel)]="buscador"
+          aria-label="Buscar"
+        />
+      </div>
+
+      <!-- Acciones de autenticación -->
+      <div class="d-flex gap-2 align-items-center">
+        <ng-container *ngIf="estaLogueado; else noLogueado">
+          <div class="dropdown">
+            <button
+              class="btn btn-sm btn-light dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="fas fa-user-circle"></i> {{ usuarioActual?.nombre }}
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li>
+                <a class="dropdown-item" routerLink="/mi-cuenta">
+                  <i class="fas fa-user"></i> Mi Cuenta
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" routerLink="/dashboard">
+                  <i class="fas fa-chart-line"></i> Dashboard
+                </a>
+              </li>
+              <li><hr class="dropdown-divider" /></li>
+              <li>
+                <a class="dropdown-item text-danger" (click)="cerrarSesion()">
+                  <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+                </a>
+              </li>
+            </ul>
+          </div>
+        </ng-container>
+
+        <ng-template #noLogueado>
+          <a routerLink="/login" class="btn btn-sm btn-primary">
+            <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
+          </a>
+          <a routerLink="/registro" class="btn btn-sm btn-outline-light">
+            <i class="fas fa-user-plus"></i> Regístrate
+          </a>
+        </ng-template> 
+        
+        <a routerLink="/carrito" class="btn btn-primary ms-2 btn-carrito">🛒 Carrito
+          <span class="badge bg-danger ms-1">{{ cantidadCarrito }}</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>

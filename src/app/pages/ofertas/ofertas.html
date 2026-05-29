@@ -1,0 +1,68 @@
+<div class="ofertas-container">
+  <div class="container py-5">
+    <div class="row mb-5 align-items-center">
+      <div class="col-md-8">
+        <h1 class="mb-3">Ofertas Especiales</h1>
+        <p class="lead text-muted">¡Descuentos increíbles en productos seleccionados!</p>
+      </div>
+      <div class="col-md-4 text-center">
+        <div class="badge-descuento">
+          <span class="descuento-texto">-{{ descuentoPorcentaje }}%</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Grid de productos en oferta -->
+    <div class="row g-4">
+      <div *ngFor="let producto of productosEnOferta" class="col-md-6 col-lg-4 col-xl-3">
+        <div class="card h-100 shadow-sm card-oferta">
+          <div class="badge bg-danger position-absolute top-0 start-0 m-2">-{{ descuentoPorcentaje }}%</div>
+          <img
+            [src]="producto.imagen"
+            class="card-img-top"
+            [alt]="producto.nombre"
+            style="height: 200px; object-fit: cover;"
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{ producto.nombre }}</h5>
+            <p class="card-text text-muted small">{{ producto.categoria }}</p>
+            
+            <!-- Precios -->
+            <div class="mb-3">
+              <p class="text-muted text-decoration-line-through mb-1">
+                {{ producto.precio | currency:'USD':'symbol':'1.2-2' }}
+              </p>
+              <p class="h5 text-danger">
+                {{ calcularPrecioConDescuento(producto.precio) | currency:'USD':'symbol':'1.2-2' }}
+              </p>
+            </div>
+
+            <p class="card-text small">
+              <span *ngIf="producto.stock > 0" class="text-success">✓ En Stock</span>
+              <span *ngIf="producto.stock === 0" class="text-danger">Sin Stock</span>
+            </p>
+          </div>
+          <div class="card-footer bg-white">
+            <button
+              class="btn btn-danger w-100"
+              [disabled]="producto.stock === 0"
+              (click)="agregarAlCarrito(producto)"
+            >
+              Comprar Ahora
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="row mt-5">
+      <div class="col-12">
+        <div class="alert alert-warning" role="alert">
+          <h4 class="alert-heading">¡Aproveche estas ofertas!</h4>
+          <p>Estas ofertas especiales son por tiempo limitado. Haga clic en "Comprar Ahora" para agregar productos a su carrito.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
