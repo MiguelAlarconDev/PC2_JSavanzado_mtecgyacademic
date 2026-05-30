@@ -287,14 +287,15 @@ https://github.com/MiguelAlarconDev/PC2_JSavanzado_mtecgyacademic/tree/main
 ## Despliegue
 
 Aplicación desplegada en:
-Link:
+Link Netlify: https://mtecgy-academic.netlify.app/
 
+Link vercel: https://pc-2-j-savanzado-mtecgyacademic.vercel.app/?_vercel_share=rG0P4IEl0izqIFsGw9P2PH8vvomKxKCW
 ---
 
 ## Integrantes
 
+* Miguel Junior Alarcón Escriba
 * Yulisa Nayra Guerrero
-* [Agregar integrantes del equipo]
 
 ---
 
